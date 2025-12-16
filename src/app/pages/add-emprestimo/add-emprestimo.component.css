@@ -1,0 +1,28 @@
+/* Efeito hover nos botões */
+.btn-success:hover, .btn-secondary:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s;
+}
+
+/* Sombra leve nos botões */
+.btn-shadow {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Input inválido vermelho */
+.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Bordas arredondadas nos inputs */
+.form-control {
+  border-radius: 8px;
+}
+
+/* Pequena sombra no formulário */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}

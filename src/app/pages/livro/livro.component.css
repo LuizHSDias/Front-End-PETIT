@@ -1,0 +1,24 @@
+/* Hover suave nas linhas da tabela */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+/* Botão Cadastrar destacado */
+.btn-primary {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Tabela com borda arredondada e sombra */
+.table {
+  border-radius: 10px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}

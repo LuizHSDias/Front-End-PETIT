@@ -1,0 +1,73 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+  
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <img [src]="imagemPetiano || 'assets/petiano-padrao.png'" class="img-petiano" (click)="abrirInputImagem()">  
+                  <input type="file" id="inputImagem" hidden class="form-control" (change)="carregarImagem($event)">
+              </div>
+          </div>
+
+
+  <div class="mb-3">
+    <label for="dataEntrada" class="form-label">Data de Entrada</label>
+    <input id="dataEntrada" type="date" class="form-control" formControlName="dataEntrada"
+           [ngClass]="{'is-invalid': formGroup.get('dataEntrada')?.invalid && formGroup.get('dataEntrada')?.touched}">
+    <div class="invalid-feedback">A data é obrigatória.</div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="estudante" class="form-label">Estudante</label>
+      <select class="form-select" formControlName="estudante">
+        <option [ngValue]="null" disabled>Selecione um Estudante</option>
+        <option *ngFor="let estudante of listaEstudantes" [ngValue]="estudante">{{ estudante.nome }}</option>
+      </select>
+      <div class="invalid-feedback">O Estudante é obrigatório.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="tipo" class="form-label">Tipo</label>
+      <select id="tipo" class="form-select" formControlName="tipo"
+              [ngClass]="{'is-invalid': formGroup.get('tipo')?.invalid && formGroup.get('tipo')?.touched}">
+        <option value="" disabled selected>Selecione o tipo</option>
+        <option value="Bolsista">Bolsista</option>
+        <option value="Voluntário">Voluntário</option>
+      </select>
+      <div class="invalid-feedback">O Tipo é obrigatório.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label for="login" class="form-label">Login</label>
+      <input id="login" type="text" class="form-control"
+             formControlName="login"
+             [ngClass]="{'is-invalid': mensagemErroLogin}"
+             (blur)="verificarLogin()">
+      <div *ngIf="mensagemErroLogin" class="text-danger small mt-1">{{ mensagemErroLogin }}</div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="senha" class="form-label">Senha</label>
+      <input id="senha" type="password" class="form-control" formControlName="senha">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="nivelAcesso" class="form-label">Nível de Acesso</label>
+      <select class="form-select" formControlName="nivelAcesso">
+        <option value="" disabled>Selecione um nível de acesso</option>
+        <option value="NIVEL1">Nível 1</option>
+        <option value="NIVEL2">Nível 2</option>
+        <option value="NIVEL3">Nível 3</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between mt-4">
+    <a routerLink="/petianos" class="btn btn-secondary shadow-sm">Cancelar</a>
+    <button type="submit" class="btn btn-success shadow-sm" [disabled]="formGroup.invalid">
+      {{ formGroup.value.id ? 'Atualizar' : 'Cadastrar' }}
+    </button>
+  </div>
+</form>

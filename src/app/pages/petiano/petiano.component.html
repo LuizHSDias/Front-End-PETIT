@@ -1,0 +1,60 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
+    Petianos
+  </h2>
+
+  <!-- Botão Cadastrar -->
+  <div class="d-flex justify-content-end mb-3">
+    <a routerLink="/add-petiano" class="btn btn-primary btn-lg shadow-sm">
+      + Cadastrar
+    </a>
+  </div>
+
+  <!-- Spinner de carregamento -->
+  <div *ngIf="mensagemDados" class="text-center my-3">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+    <p class="mt-2">Aguarde, carregando dados...</p>
+  </div>
+
+  <!-- Tabela responsiva -->
+  <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
+    <table class="table table-striped table-hover align-middle shadow-sm rounded">
+      <thead class="table-dark">
+        <tr>
+          <th>Data Entrada</th>
+          <th>Estudante</th>
+          <th>Tipo</th>
+          <th>Login</th>
+          <th>Nível</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let petiano of lista">
+          <td>{{ petiano.dataEntrada }}</td>
+          <td>{{ petiano.estudante?.nome }}</td>
+          <td>{{ petiano.tipo }}</td>
+          <td>{{ petiano.login }}</td>
+           <td>{{ petiano.nivelAcesso }}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-warning me-2" (click)="editar(petiano.id)">
+              Editar
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="excluir(petiano.id!)">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mensagem caso não haja dados -->
+  <div *ngIf="!mensagemDados && lista.length === 0" class="alert alert-info text-center mt-3">
+    Nenhum estudante encontrado.
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+body {
+  background: linear-gradient(135deg, #6c5ce7, #00b894); /* fundo degradê */
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.form-control:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+}

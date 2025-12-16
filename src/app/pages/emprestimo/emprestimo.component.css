@@ -1,0 +1,52 @@
+/* Estilo base dos botões de ação */
+.btn-acao {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* espaçamento entre ícone e texto */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Botão Editar */
+.btn-editar {
+  background-color: #0d6efd; /* azul padrão bootstrap */
+  border: none;
+  color: #fff;
+}
+
+.btn-editar:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.03);
+}
+
+/* Botão Excluir */
+.btn-excluir {
+  background-color: #dc3545; /* vermelho bootstrap */
+  border: none;
+  color: #fff;
+}
+
+.btn-excluir:hover {
+  background-color: #bb2d3b;
+  transform: scale(1.03);
+}
+
+/* Ícones */
+.btn-acao i {
+  font-size: 16px;
+}
+
+/* Forçar botões de ação a ficarem lado a lado */
+td .btn-acao {
+  display: inline-flex !important;
+  margin-bottom: 0 !important;
+  vertical-align: middle;
+}
+
+/* Garantir que o container não empurre eles para baixo */
+td.text-center {
+  white-space: nowrap;
+}

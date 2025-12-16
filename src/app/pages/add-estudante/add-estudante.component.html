@@ -1,0 +1,65 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
+    {{ formGroup.value.id ? 'Editar Estudante' : 'Cadastrar Estudante' }}
+  </h2>
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
+
+    <!-- Nome -->
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input id="nome" type="text" class="form-control" formControlName="nome"
+             [ngClass]="{'is-invalid': formGroup.get('nome')?.invalid && formGroup.get('nome')?.touched}">
+      <div class="invalid-feedback">
+        O nome é obrigatório.
+      </div>
+    </div>
+
+    <!-- E-mail e Curso -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input id="email" type="email" class="form-control" formControlName="email"
+               [ngClass]="{'is-invalid': formGroup.get('email')?.invalid && formGroup.get('email')?.touched}">
+        <div class="invalid-feedback">
+          Insira um e-mail válido.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="curso" class="form-label">Curso</label>
+        <select id="curso" class="form-select" formControlName="curso"
+                [ngClass]="{'is-invalid': formGroup.get('curso')?.invalid && formGroup.get('curso')?.touched}">
+          <option value="" disabled selected>Selecione o Curso</option>
+          <option value="Engenharia de Computação">Engenharia de Computação</option>
+          <option value="Engenharia Metalúrgica">Engenharia Metalúrgica</option>
+          <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+        </select>
+        <div class="invalid-feedback">O curso é obrigatório.</div>
+      </div>
+    </div>
+
+    <!-- Matrícula -->
+    <div class="mb-3">
+      <label for="matricula" class="form-label">Matrícula</label>
+      <input id="matricula" type="text" class="form-control" formControlName="matricula"
+             [ngClass]="{'is-invalid': formGroup.get('matricula')?.invalid && formGroup.get('matricula')?.touched}">
+      <div class="invalid-feedback">
+        A matrícula é obrigatória.
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <div class="d-flex justify-content-between mt-4">
+      <a routerLink="/estudantes" class="btn btn-secondary shadow-sm">
+        Cancelar
+      </a>
+      <button type="submit" class="btn btn-success shadow-sm" [disabled]="formGroup.invalid">
+        {{ formGroup.value.id ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+    </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px; border-radius: 15px;">
+    
+    <h2 class="card-title text-center mb-4 text-primary fw-bold border-bottom pb-2">
+      Autenticar Petiano
+    </h2>
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      
+      <div class="mb-3">
+        <label for="login" class="form-label fw-semibold">Login</label>
+        <input id="login" type="text" class="form-control form-control-lg" formControlName="login" placeholder="Digite seu login">
+      </div>
+
+      <div class="mb-3">
+        <label for="senha" class="form-label fw-semibold">Senha</label>
+        <input id="senha" type="password" class="form-control form-control-lg" formControlName="senha" placeholder="Digite sua senha">
+      </div>
+
+      <div class="d-grid mt-4">
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="formGroup.invalid">
+          Entrar
+        </button>
+      </div>
+
+    </form>
+
+    <div *ngIf="mensagemDados" class="alert alert-info text-center mt-3 mb-0">
+      Aguarde, autenticando dados...
+    </div>
+
+  </div>
+</div>
