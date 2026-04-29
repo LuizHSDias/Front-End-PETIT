@@ -1,8 +1,5 @@
 <div class="container mt-5">
-
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
-    Estudantes
-  </h2>
+  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">👨‍🎓 Estudante</h2>
 
   <!-- 🔹 Barra de ações: busca + botão cadastrar + total de ativos -->
   <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
@@ -16,12 +13,13 @@
     />
 
     <!-- Badge com total de ativos -->
-    <span class="badge bg-success fs-6 mb-2">
-      Ativos: {{ totalAtivos }}
-    </span>
+    <span class="badge bg-success fs-6 mb-2"> Ativos: {{ totalAtivos }} </span>
 
     <!-- Botão cadastrar -->
-    <a routerLink="/add-estudante" class="btn btn-primary btn-lg shadow-sm mb-2">
+    <a
+      routerLink="/add-estudante"
+      class="btn btn-primary btn-lg shadow-sm mb-2"
+    >
       + Cadastrar
     </a>
   </div>
@@ -36,11 +34,14 @@
 
   <!-- 🔹 Tabela responsiva -->
   <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
-    <table class="table table-striped table-hover align-middle shadow-sm rounded">
+    <table
+      class="table table-striped table-hover align-middle shadow-sm rounded"
+    >
       <thead class="table-dark">
         <tr>
           <th>Nome</th>
           <th>E-mail</th>
+          <th>Telefone</th>
           <th>Curso</th>
           <th>Matrícula</th>
           <th>Status</th>
@@ -51,23 +52,36 @@
         <tr *ngFor="let estudante of lista">
           <td>{{ estudante.nome }}</td>
           <td>{{ estudante.email }}</td>
+          <td>{{ estudante.telefone }}</td>
           <td>{{ estudante.curso }}</td>
           <td>{{ estudante.matricula }}</td>
           <td>
-            <span [ngClass]="{
-              'badge bg-success': estudante.ativo,
-              'badge bg-secondary': !estudante.ativo
-            }">
-              {{ estudante.ativo ? 'Ativo' : 'Inativo' }}
+            <span
+              [ngClass]="{
+                'badge bg-success-subtle text-success px-3 py-2':
+                  estudante.ativo,
+                'badge bg-secondary-subtle text-secondary px-3 py-2':
+                  !estudante.ativo,
+              }"
+            >
+              {{ estudante.ativo ? "Ativo" : "Inativo" }}
             </span>
           </td>
           <td class="text-center">
-            <button class="btn btn-sm btn-warning me-2" (click)="editar(estudante.id)">
-              ✏️ Editar
-            </button>
-            <button class="btn btn-sm btn-danger" (click)="excluir(estudante.id!)">
-              🗑️ Excluir
-            </button>
+            <div class="d-flex justify-content-center gap-2">
+              <button
+                class="btn btn-sm btn-warning d-flex align-items-center gap-1"
+                (click)="editar(estudante.id)"
+              >
+                ✏️ <span>Editar</span>
+              </button>
+              <button
+                class="btn btn-sm btn-danger d-flex align-items-center gap-1"
+                (click)="excluir(estudante.id!)"
+              >
+                🗑️ <span>Excluir</span>
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -75,7 +89,10 @@
   </div>
 
   <!-- 🔹 Mensagem caso não haja dados -->
-  <div *ngIf="!mensagemDados && lista.length === 0" class="alert alert-info text-center mt-3">
+  <div
+    *ngIf="!mensagemDados && lista.length === 0"
+    class="alert alert-info text-center mt-3"
+  >
     Nenhum estudante encontrado.
   </div>
 
@@ -99,5 +116,4 @@
       Próxima ▶
     </button>
   </div>
-
 </div>

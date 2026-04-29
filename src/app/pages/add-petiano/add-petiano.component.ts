@@ -39,7 +39,6 @@ export class AddPetianoComponent {
           id: [null], // Campo Opcional
           dataEntrada: ['', Validators.required],
           estudante: ['', Validators.required],
-          curso: ['', Validators.required],
           tipo: ['', Validators.required],
           login: ['', Validators.required],
           senha: ['', Validators.required],
@@ -76,23 +75,29 @@ salvarPetiano(imagem?: Imagem): void {
   let petiano = new Petiano();
 
   petiano.dataEntrada = this.formGroup.get('dataEntrada')?.value;
-  petiano.estudante = this.formGroup.get('estudante')?.value;
+
+
+  petiano.estudante = {
+    id: this.formGroup.get('estudante')?.value
+  } as Estudante;
+
   petiano.tipo = this.formGroup.get('tipo')?.value;
   petiano.login = this.formGroup.get('login')?.value;
   petiano.senha = this.formGroup.get('senha')?.value;
   petiano.nivelAcesso = this.formGroup.get('nivelAcesso')?.value;
   petiano.urlImagem = imagem?.urlImagem;
 
+  console.log('PETIANO ENVIADO:', petiano);
+
   this.petianoService.salvar(petiano).subscribe({
     next: () => {
       alert('Registro salvo com sucesso!');
       this.formGroup.reset();
-      this.imagemPetiano = null;
-      this.imagemSelecionada = null;
       this.router.navigate(['/petianos']);
     },
-    error: () => {
-      alert('Erro ao salvar o registro. Tente novamente.');
+    error: (err) => {
+      console.error(err.error);
+      alert('Erro ao salvar o registro.');
     }
   });
 }

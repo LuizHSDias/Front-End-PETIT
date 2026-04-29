@@ -27,6 +27,7 @@ export class AddEstudanteComponent {
       id: [null],
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      telefone: ['', Validators.required],
       curso: ['', Validators.required],
       matricula: ['', Validators.required]
     });
@@ -53,7 +54,13 @@ export class AddEstudanteComponent {
           this.router.navigate(['/estudantes']);
         },
         error: (erro) => {
-          alert(erro.error || 'Erro ao salvar estudante. Verifique os dados e tente novamente.');
+          console.error(erro);
+
+          if(erro.status === 400){
+            alert('Erro de validação: verifique os campos obrigatórios.');
+          } else {
+            alert('Erro ao salvar estudante');
+          }
         }
       });
     }

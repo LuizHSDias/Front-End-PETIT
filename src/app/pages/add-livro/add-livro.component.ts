@@ -20,7 +20,6 @@ import { RouterModule } from '@angular/router';
 export class AddLivroComponent {
   
   formGroup: FormGroup;
-  livro!: Livro;
 
   constructor(private formBuilder: FormBuilder, private livroService: LivroService, private route: ActivatedRoute, private router: Router){
     
@@ -31,7 +30,8 @@ export class AddLivroComponent {
       autor: ['', Validators.required],
       editora: ['', Validators.required],
       ano: ['', Validators.required],
-      isbn: ['', Validators.required]
+      isbn: ['', Validators.required],
+      genero: ['', Validators.required]
     });
   }
 
@@ -45,6 +45,11 @@ export class AddLivroComponent {
   }
 
   onSubmit():void {
+
+    const livro = this.formGroup.value;
+console.log('Livro enviado:', livro);
+console.log('Genero:', `"${livro.genero}"`);
+
     if(this.formGroup.valid){
       this.livroService.salvar(this.formGroup.value).subscribe(() => {
         alert('Livro cadastrado com sucesso!');

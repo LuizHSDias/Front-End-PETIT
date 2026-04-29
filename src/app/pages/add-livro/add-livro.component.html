@@ -38,7 +38,7 @@
 
     <!-- Ano e ISBN lado a lado -->
     <div class="row mb-3">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <label for="ano" class="form-label">Ano</label>
         <input id="ano" type="number" class="form-control" formControlName="ano"
                [ngClass]="{'is-invalid': formGroup.get('ano')?.invalid && formGroup.get('ano')?.touched}">
@@ -46,12 +46,21 @@
           O ano é obrigatório.
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="isbn" class="form-label">ISBN</label>
         <input id="isbn" type="text" class="form-control" formControlName="isbn"
                [ngClass]="{'is-invalid': formGroup.get('isbn')?.invalid && formGroup.get('isbn')?.touched}">
         <div class="invalid-feedback">
           O ISBN é obrigatório.
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <label for="genero" class="form-label">Gênero</label>
+        <input id="genero" type="text" class="form-control" formControlName="genero"
+               [ngClass]="{'is-invalid': formGroup.get('genero')?.invalid && formGroup.get('genero')?.touched}">
+        <div class="invalid-feedback">
+          O Gênero é obrigatório.
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { Imagem } from "./imagem";
 import { Estudante } from "./estudante";
 
 export class Petiano {

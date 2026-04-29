@@ -3,17 +3,24 @@ import { CommonModule } from '@angular/common';
 import { LivroService } from '../../services/livro.service';
 import { Livro } from '../../models/livro';
 import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-livro',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './livro.component.html',
   styleUrl: './livro.component.css'
 })
 export class LivroComponent {
   lista: Livro[] = [];
   mensagemDados = false;
+  filtroTitulo: string = '';
+
+   // Paginação
+  paginaAtual = 0;
+  tamanhoPagina = 5;
+  totalPaginas = 0;
 
   constructor (private service: LivroService, private router: Router){
 
@@ -34,6 +41,24 @@ export class LivroComponent {
       },
       complete: () => {
         this.mensagemDados = false;
+      }
+    });
+  }
+
+    buscarPorTitulo(): void {
+    if (this.filtroTitulo.trim() === '') {
+      this.carregarLista();
+      return;
+    }
+
+        this.service.buscarPorTitulo(this.filtroTitulo, this.paginaAtual, this.tamanhoPagina).subscribe({
+      next: (resultado) => {
+        this.lista = resultado.content;
+        this.totalPaginas = resultado.totalPages;
+        this.paginaAtual = 0;
+      },
+      error: () => {
+        alert('Erro ao Buscar Livro.');
       }
     });
   }

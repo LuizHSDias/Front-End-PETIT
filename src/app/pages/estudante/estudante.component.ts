@@ -30,7 +30,7 @@ export class EstudanteComponent {
     this.contarAtivos();
   }
 
-  // 🔹 Listar estudantes (paginado)
+  // Listar estudantes (paginado)
   carregarLista(): void {
     this.mensagemDados = true;
     this.service.listarPaginado(this.paginaAtual, this.tamanhoPagina).subscribe({
@@ -47,7 +47,7 @@ export class EstudanteComponent {
     });
   }
 
-  // 🔹 Buscar por nome
+  // Buscar por nome
   buscarPorNome(): void {
     if (this.filtroNome.trim() === '') {
       this.carregarLista();
@@ -74,7 +74,7 @@ export class EstudanteComponent {
     });
   }
 
-  // 🔹 Excluir (soft delete)
+  // Excluir
   excluir(id: number): void {
     if (confirm('Tem certeza que deseja excluir o registro?')) {
       this.service.excluir(id).subscribe({
@@ -90,7 +90,7 @@ export class EstudanteComponent {
     }
   }
 
-  // 🔹 Navegar para o formulário de edição
+  // Navegar para o formulário de edição
   editar(id: number): void {
     this.router.navigate(['/add-estudante', id]);
   }

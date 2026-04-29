@@ -21,7 +21,7 @@
       <label for="estudante" class="form-label">Estudante</label>
       <select class="form-select" formControlName="estudante">
         <option [ngValue]="null" disabled>Selecione um Estudante</option>
-        <option *ngFor="let estudante of listaEstudantes" [ngValue]="estudante">{{ estudante.nome }}</option>
+        <option *ngFor="let estudante of listaEstudantes" [ngValue]="estudante.id">{{ estudante.nome }}</option>
       </select>
       <div class="invalid-feedback">O Estudante é obrigatório.</div>
     </div>
@@ -31,8 +31,9 @@
       <select id="tipo" class="form-select" formControlName="tipo"
               [ngClass]="{'is-invalid': formGroup.get('tipo')?.invalid && formGroup.get('tipo')?.touched}">
         <option value="" disabled selected>Selecione o tipo</option>
-        <option value="Bolsista">Bolsista</option>
-        <option value="Voluntário">Voluntário</option>
+        <option value="BOLSISTA">Bolsista</option>
+        <option value="VOLUNTARIO">Voluntário</option>
+        <option value="EGRESSO">Egresso</option>
       </select>
       <div class="invalid-feedback">O Tipo é obrigatório.</div>
     </div>

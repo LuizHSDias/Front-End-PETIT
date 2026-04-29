@@ -5,4 +5,5 @@ export class Livro {
     editora?: string;
     ano?: number;
     isbn?: string;
+    genero?: string;
 }

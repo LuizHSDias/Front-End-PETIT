@@ -1,52 +1,24 @@
-/* Estilo base dos botões de ação */
-.btn-acao {
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px; /* espaçamento entre ícone e texto */
-  transition: transform 0.2s ease, opacity 0.2s ease;
+/* Hover suave nas linhas da tabela */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
-/* Botão Editar */
-.btn-editar {
-  background-color: #0d6efd; /* azul padrão bootstrap */
-  border: none;
-  color: #fff;
+/* Botão Cadastrar destacado */
+.btn-primary {
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn-editar:hover {
-  background-color: #0b5ed7;
-  transform: scale(1.03);
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-/* Botão Excluir */
-.btn-excluir {
-  background-color: #dc3545; /* vermelho bootstrap */
-  border: none;
-  color: #fff;
+/* Tabela com borda arredondada e sombra */
+.table {
+  border-radius: 10px;
 }
 
-.btn-excluir:hover {
-  background-color: #bb2d3b;
-  transform: scale(1.03);
-}
-
-/* Ícones */
-.btn-acao i {
-  font-size: 16px;
-}
-
-/* Forçar botões de ação a ficarem lado a lado */
-td .btn-acao {
-  display: inline-flex !important;
-  margin-bottom: 0 !important;
-  vertical-align: middle;
-}
-
-/* Garantir que o container não empurre eles para baixo */
-td.text-center {
-  white-space: nowrap;
+.table-responsive {
+  overflow-x: auto;
 }

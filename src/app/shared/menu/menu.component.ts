@@ -15,6 +15,7 @@ import { LoginService } from '../../services/login.service';
 export class MenuComponent {
 
   menu = [
+    { descricao: 'Dashboards', rota: '/dashboards', niveis: ['ADMIN, PETIT']},
     { descricao: 'Emprestimos', rota: '/emprestimos', niveis:['ADMIN, PETIT'] },
     { descricao: 'Livros', rota: '/livros', niveis:['ADMIN, PETIT'] },
     { descricao: 'Estudantes', rota: '/estudantes', niveis:['ADMIN, PETIT'] },

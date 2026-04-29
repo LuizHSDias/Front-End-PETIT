@@ -26,6 +26,15 @@ export class LivroService {
     }
   }
 
+ buscarPorTitulo(titulo: string, page: number = 0, size: number = 10): Observable<any> {
+  const params = { titulo, page, size };
+
+  return this.http.get<any>(`${this.apiUrl}/search`, {
+    ...this.loginService.gerarCabecalhoHTTP(),
+    params
+  });
+}
+
   buscarPorId(id: number){
     return this.http.get(`${this.apiUrl}/${id}`, this.loginService.gerarCabecalhoHTTP());
   }

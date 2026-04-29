@@ -16,8 +16,9 @@
       </div>
     </div>
 
-    <!-- E-mail e Curso -->
+    <!-- E-mail e Telefone -->
     <div class="row mb-3">
+
       <div class="col-md-6">
         <label for="email" class="form-label">E-mail</label>
         <input id="email" type="email" class="form-control" formControlName="email"
@@ -28,21 +29,34 @@
       </div>
 
       <div class="col-md-6">
-        <label for="curso" class="form-label">Curso</label>
-        <select id="curso" class="form-select" formControlName="curso"
-                [ngClass]="{'is-invalid': formGroup.get('curso')?.invalid && formGroup.get('curso')?.touched}">
-          <option value="" disabled selected>Selecione o Curso</option>
-          <option value="Engenharia de Computação">Engenharia de Computação</option>
-          <option value="Engenharia Metalúrgica">Engenharia Metalúrgica</option>
-          <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
-        </select>
-        <div class="invalid-feedback">O curso é obrigatório.</div>
+        <label for="telefone" class="form-label">Telefone</label>
+        <input id="telefone" type="text" class="form-control" formControlName="telefone"
+               [ngClass]="{'is-invalid': formGroup.get('telefone')?.invalid && formGroup.get('telefone')?.touched}">
+        <div class="invalid-feedback">
+          Insira um Telefone válido.
+        </div>
       </div>
+
     </div>
 
     <!-- Matrícula -->
-    <div class="mb-3">
-      <label for="matricula" class="form-label">Matrícula</label>
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+        <label for="curso" class="form-label">Curso</label>
+       <select id="curso" class="form-select" formControlName="curso"
+        [ngClass]="{'is-invalid': formGroup.get('curso')?.invalid && formGroup.get('curso')?.touched}">
+        <option [ngValue]="null" disabled>Selecione o Curso</option>
+        <option value="Engenharia de Computação">Engenharia de Computação</option>
+        <option value="Engenharia Metalúrgica">Engenharia Metalúrgica</option>
+        <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+      </select>
+
+        <div class="invalid-feedback">O curso é obrigatório.</div>
+      </div>
+
+      <div class="col-md-6">
+         <label for="matricula" class="form-label">Matrícula</label>
       <input id="matricula" type="text" class="form-control" formControlName="matricula"
              [ngClass]="{'is-invalid': formGroup.get('matricula')?.invalid && formGroup.get('matricula')?.touched}">
       <div class="invalid-feedback">
@@ -50,6 +64,8 @@
       </div>
     </div>
 
+      </div>
+     
     <!-- Botões -->
     <div class="d-flex justify-content-between mt-4">
       <a routerLink="/estudantes" class="btn btn-secondary shadow-sm">
