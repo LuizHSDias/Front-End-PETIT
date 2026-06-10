@@ -1,0 +1,244 @@
+/* 🔥 FUNDO GERAL */
+:host {
+  display: block;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+/* 🔥 TOPO */
+.topo-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* 📄 EXPORTAR PDF */
+.btn-exportar {
+
+  background: linear-gradient(
+    135deg,
+    #dc2626,
+    #ef4444
+  );
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+
+}
+
+.btn-exportar:hover {
+
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    135deg,
+    #b91c1c,
+    #dc2626
+  );
+
+}
+
+/* 📅 FILTRO */
+.filtro-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e8f0;
+}
+
+.filtro-container label {
+  font-weight: 500;
+}
+
+.filtro-container select {
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  border: none;
+
+  background: #1e293b;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+}
+
+.filtro-container select:hover {
+  background: #334155;
+}
+
+/* 📊 GRID */
+.dashboard {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+
+  padding: 20px;
+
+}
+
+/* 🧱 CARDS */
+.card {
+
+  background:
+    linear-gradient(
+      135deg,
+      #1e293b,
+      #334155
+    );
+
+  color: #f1f5f9;
+
+  padding: 20px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.25);
+
+  transition: 0.25s;
+
+}
+
+.card:hover {
+
+  transform:
+    translateY(-6px)
+    scale(1.03);
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.45);
+
+}
+
+.card .titulo {
+
+  font-size: 13px;
+
+  opacity: 0.7;
+
+}
+
+.card .valor {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  margin-top: 8px;
+
+}
+
+/* 💰 CARD VERDE */
+.card.destaque {
+
+  background:
+    linear-gradient(
+      135deg,
+      #16a34a,
+      #22c55e
+    );
+
+}
+
+/* 📊 GRÁFICOS */
+.graficos-container {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  padding: 20px;
+
+}
+
+.grafico {
+
+  background: #1e293b;
+
+  padding: 20px;
+
+  border-radius: 14px;
+
+  color: white;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.25);
+
+  transition: 0.2s;
+
+}
+
+.grafico:hover {
+  transform: translateY(-3px);
+}
+
+.titulo-grafico {
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  margin-bottom: 15px;
+
+  color: #e2e8f0;
+
+}
+
+.grafico canvas {
+  max-height: 300px;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 900px) {
+
+  .graficos-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .topo-dashboard {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+  .filtro-container {
+    justify-content: center;
+  }
+
+}

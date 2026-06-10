@@ -1,11 +1,98 @@
-/* Estilo para links do menu */
-.navbar .menu-link {
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 5px; /* cantos arredondados no hover */
+/* 🔥 NAVBAR */
+.navbar-petit {
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Hover: fundo preto, texto branco */
-.navbar .menu-link:hover {
-  background-color: #000;
-  color: #fff !important;
+/* 🔥 LOGO */
+.navbar-brand {
+  font-size: 32px;
+  font-weight: bold;
+  color: white !important;
+  letter-spacing: 1px;
+  transition: 0.25s;
+}
+
+.navbar-brand:hover {
+  color: #60a5fa !important;
+  transform: scale(1.03);
+}
+
+/* 🔗 LINKS */
+.menu-link {
+  color: #cbd5e1 !important;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 🔥 HOVER */
+.menu-link:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* ✅ LINK ATIVO */
+.menu-link.active {
+  background: #2563eb;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* 👤 USUÁRIO */
+.usuario-badge {
+  background: #1e293b;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 🚪 BOTÃO SAIR */
+.btn-sair {
+  border-radius: 10px;
+  padding: 6px 14px;
+  transition: all 0.25s ease;
+}
+
+.btn-sair:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+/* 📱 MOBILE */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 991px) {
+
+  .navbar-collapse {
+    margin-top: 15px;
+  }
+
+  .menu-link {
+    display: block;
+    text-align: center;
+  }
+
+  .usuario-badge {
+    margin-top: 15px;
+  }
 }

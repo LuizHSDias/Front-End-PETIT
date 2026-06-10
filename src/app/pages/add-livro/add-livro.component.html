@@ -1,81 +1,200 @@
-<div class="container mt-5">
+<div class="livro-form-container">
 
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
-    {{ formGroup.value.id ? 'Editar Livro' : 'Cadastrar Livro' }}
+  <!-- 📚 TÍTULO -->
+  <h2 class="titulo-pagina">
+
+    {{ formGroup.value.id
+      ? '✏️ Editar Livro'
+      : '📚 Cadastrar Livro' }}
+
   </h2>
 
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <!-- 📄 FORM -->
+  <form
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()"
+    novalidate
+  >
 
-    <!-- Título -->
-    <div class="mb-3">
-      <label for="titulo" class="form-label">Título</label>
-      <input id="titulo" type="text" class="form-control" formControlName="titulo"
-             [ngClass]="{'is-invalid': formGroup.get('titulo')?.invalid && formGroup.get('titulo')?.touched}">
+    <!-- 🔹 TÍTULO -->
+    <div class="mb-4">
+
+      <label for="titulo" class="form-label">
+        Título
+      </label>
+
+      <input
+        id="titulo"
+        type="text"
+        class="form-control"
+        formControlName="titulo"
+        [ngClass]="{
+          'is-invalid':
+          formGroup.get('titulo')?.invalid &&
+          formGroup.get('titulo')?.touched
+        }"
+      />
+
       <div class="invalid-feedback">
         O título é obrigatório.
       </div>
+
     </div>
 
-    <!-- Autor e Editora lado a lado -->
-    <div class="row mb-3">
+    <!-- 🔹 AUTOR / EDITORA -->
+    <div class="row mb-4">
+
       <div class="col-md-6">
-        <label for="autor" class="form-label">Autor</label>
-        <input id="autor" type="text" class="form-control" formControlName="autor"
-               [ngClass]="{'is-invalid': formGroup.get('autor')?.invalid && formGroup.get('autor')?.touched}">
+
+        <label for="autor" class="form-label">
+          Autor
+        </label>
+
+        <input
+          id="autor"
+          type="text"
+          class="form-control"
+          formControlName="autor"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('autor')?.invalid &&
+            formGroup.get('autor')?.touched
+          }"
+        />
+
         <div class="invalid-feedback">
           O autor é obrigatório.
         </div>
+
       </div>
+
       <div class="col-md-6">
-        <label for="editora" class="form-label">Editora</label>
-        <input id="editora" type="text" class="form-control" formControlName="editora"
-               [ngClass]="{'is-invalid': formGroup.get('editora')?.invalid && formGroup.get('editora')?.touched}">
+
+        <label for="editora" class="form-label">
+          Editora
+        </label>
+
+        <input
+          id="editora"
+          type="text"
+          class="form-control"
+          formControlName="editora"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('editora')?.invalid &&
+            formGroup.get('editora')?.touched
+          }"
+        />
+
         <div class="invalid-feedback">
           A editora é obrigatória.
         </div>
+
       </div>
+
     </div>
 
-    <!-- Ano e ISBN lado a lado -->
-    <div class="row mb-3">
+    <!-- 🔹 ANO / ISBN / GÊNERO -->
+    <div class="row mb-4">
+
       <div class="col-md-3">
-        <label for="ano" class="form-label">Ano</label>
-        <input id="ano" type="number" class="form-control" formControlName="ano"
-               [ngClass]="{'is-invalid': formGroup.get('ano')?.invalid && formGroup.get('ano')?.touched}">
+
+        <label for="ano" class="form-label">
+          Ano
+        </label>
+
+        <input
+          id="ano"
+          type="number"
+          class="form-control"
+          formControlName="ano"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('ano')?.invalid &&
+            formGroup.get('ano')?.touched
+          }"
+        />
+
         <div class="invalid-feedback">
           O ano é obrigatório.
         </div>
+
       </div>
+
       <div class="col-md-4">
-        <label for="isbn" class="form-label">ISBN</label>
-        <input id="isbn" type="text" class="form-control" formControlName="isbn"
-               [ngClass]="{'is-invalid': formGroup.get('isbn')?.invalid && formGroup.get('isbn')?.touched}">
+
+        <label for="isbn" class="form-label">
+          ISBN
+        </label>
+
+        <input
+          id="isbn"
+          type="text"
+          class="form-control"
+          formControlName="isbn"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('isbn')?.invalid &&
+            formGroup.get('isbn')?.touched
+          }"
+        />
+
         <div class="invalid-feedback">
           O ISBN é obrigatório.
         </div>
+
       </div>
 
       <div class="col-md-5">
-        <label for="genero" class="form-label">Gênero</label>
-        <input id="genero" type="text" class="form-control" formControlName="genero"
-               [ngClass]="{'is-invalid': formGroup.get('genero')?.invalid && formGroup.get('genero')?.touched}">
+
+        <label for="genero" class="form-label">
+          Gênero
+        </label>
+
+        <input
+          id="genero"
+          type="text"
+          class="form-control"
+          formControlName="genero"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('genero')?.invalid &&
+            formGroup.get('genero')?.touched
+          }"
+        />
+
         <div class="invalid-feedback">
-          O Gênero é obrigatório.
+          O gênero é obrigatório.
         </div>
+
       </div>
+
     </div>
 
-    <!-- Botões -->
-    <div class="d-flex justify-content-between mt-4">
-      <a routerLink="/livros" class="btn btn-secondary shadow-sm">
+    <!-- 🔥 BOTÕES -->
+    <div class="botoes-formulario">
+
+      <a
+        routerLink="/livros"
+        class="btn-cancelar"
+      >
         Cancelar
       </a>
-      <button type="submit" class="btn btn-success shadow-sm" [disabled]="formGroup.invalid">
-        {{ formGroup.value.id ? 'Atualizar' : 'Cadastrar' }}
+
+      <button
+        type="submit"
+        class="btn-salvar"
+        [disabled]="formGroup.invalid"
+      >
+
+        {{ formGroup.value.id
+          ? 'Atualizar'
+          : 'Cadastrar' }}
+
       </button>
+
     </div>
 
   </form>
-
 
 </div>

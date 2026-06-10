@@ -1,28 +1,50 @@
-<div class="container mt-5">
+<div class="estudante-form-container">
 
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
-    {{ formGroup.value.id ? 'Editar Estudante' : 'Cadastrar Estudante' }}
+  <h2 class="titulo-pagina">
+    👨‍🎓 {{ formGroup.value.id ? 'Editar Estudante' : 'Cadastrar Estudante' }}
   </h2>
 
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
 
     <!-- Nome -->
-    <div class="mb-3">
+    <div class="mb-4">
       <label for="nome" class="form-label">Nome</label>
-      <input id="nome" type="text" class="form-control" formControlName="nome"
-             [ngClass]="{'is-invalid': formGroup.get('nome')?.invalid && formGroup.get('nome')?.touched}">
+
+      <input
+        id="nome"
+        type="text"
+        class="form-control input-dark"
+        formControlName="nome"
+        [ngClass]="{
+          'is-invalid':
+          formGroup.get('nome')?.invalid &&
+          formGroup.get('nome')?.touched
+        }"
+      >
+
       <div class="invalid-feedback">
         O nome é obrigatório.
       </div>
     </div>
 
-    <!-- E-mail e Telefone -->
-    <div class="row mb-3">
+    <!-- EMAIL E TELEFONE -->
+    <div class="row mb-4">
 
       <div class="col-md-6">
         <label for="email" class="form-label">E-mail</label>
-        <input id="email" type="email" class="form-control" formControlName="email"
-               [ngClass]="{'is-invalid': formGroup.get('email')?.invalid && formGroup.get('email')?.touched}">
+
+        <input
+          id="email"
+          type="email"
+          class="form-control input-dark"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('email')?.invalid &&
+            formGroup.get('email')?.touched
+          }"
+        >
+
         <div class="invalid-feedback">
           Insira um e-mail válido.
         </div>
@@ -30,50 +52,120 @@
 
       <div class="col-md-6">
         <label for="telefone" class="form-label">Telefone</label>
-        <input id="telefone" type="text" class="form-control" formControlName="telefone"
-               [ngClass]="{'is-invalid': formGroup.get('telefone')?.invalid && formGroup.get('telefone')?.touched}">
+
+        <input
+          id="telefone"
+          type="text"
+          class="form-control input-dark"
+          formControlName="telefone"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('telefone')?.invalid &&
+            formGroup.get('telefone')?.touched
+          }"
+        >
+
         <div class="invalid-feedback">
-          Insira um Telefone válido.
+          Insira um telefone válido.
         </div>
       </div>
 
     </div>
 
-    <!-- Matrícula -->
-    <div class="row mb-3">
+    <!-- CURSO E MATRÍCULA -->
+    <div class="row mb-4">
 
-        <div class="col-md-6">
-        <label for="curso" class="form-label">Curso</label>
-       <select id="curso" class="form-select" formControlName="curso"
-        [ngClass]="{'is-invalid': formGroup.get('curso')?.invalid && formGroup.get('curso')?.touched}">
-        <option [ngValue]="null" disabled>Selecione o Curso</option>
-        <option value="Engenharia de Computação">Engenharia de Computação</option>
-        <option value="Engenharia Metalúrgica">Engenharia Metalúrgica</option>
-        <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
-      </select>
+      <div class="col-md-6">
 
-        <div class="invalid-feedback">O curso é obrigatório.</div>
+        <label for="curso" class="form-label">
+          Curso
+        </label>
+
+        <select
+          id="curso"
+          class="form-select input-dark"
+          formControlName="curso"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('curso')?.invalid &&
+            formGroup.get('curso')?.touched
+          }"
+        >
+
+          <option [ngValue]="null" disabled>
+            Selecione o Curso
+          </option>
+
+          <option value="Engenharia de Computação">
+            Engenharia de Computação
+          </option>
+
+          <option value="Engenharia Metalúrgica">
+            Engenharia Metalúrgica
+          </option>
+
+          <option value="Arquitetura e Urbanismo">
+            Arquitetura e Urbanismo
+          </option>
+
+        </select>
+
+        <div class="invalid-feedback">
+          O curso é obrigatório.
+        </div>
+
       </div>
 
       <div class="col-md-6">
-         <label for="matricula" class="form-label">Matrícula</label>
-      <input id="matricula" type="text" class="form-control" formControlName="matricula"
-             [ngClass]="{'is-invalid': formGroup.get('matricula')?.invalid && formGroup.get('matricula')?.touched}">
-      <div class="invalid-feedback">
-        A matrícula é obrigatória.
-      </div>
-    </div>
+
+        <label for="matricula" class="form-label">
+          Matrícula
+        </label>
+
+        <input
+          id="matricula"
+          type="text"
+          class="form-control input-dark"
+          formControlName="matricula"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('matricula')?.invalid &&
+            formGroup.get('matricula')?.touched
+          }"
+        >
+
+        <div class="invalid-feedback">
+          A matrícula é obrigatória.
+        </div>
 
       </div>
-     
-    <!-- Botões -->
+
+    </div>
+
+    <!-- BOTÕES -->
     <div class="d-flex justify-content-between mt-4">
-      <a routerLink="/estudantes" class="btn btn-secondary shadow-sm">
+
+      <a
+        routerLink="/estudantes"
+        class="btn-cancelar"
+      >
         Cancelar
       </a>
-      <button type="submit" class="btn btn-success shadow-sm" [disabled]="formGroup.invalid">
-        {{ formGroup.value.id ? 'Atualizar' : 'Cadastrar' }}
+
+      <button
+        type="submit"
+        class="btn-salvar"
+        [disabled]="formGroup.invalid"
+      >
+
+        {{
+          formGroup.value.id
+          ? 'Atualizar'
+          : 'Cadastrar'
+        }}
+
       </button>
+
     </div>
 
   </form>

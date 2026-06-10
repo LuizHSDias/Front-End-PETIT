@@ -1,47 +1,91 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-petit shadow-sm">
+
   <div class="container">
 
-    <!-- Logo / Marca -->
-    <a class="navbar-brand fw-bold fs-4" [routerLink]="menuPetiano.length > 0 ? '/home' : '/'">
+    <!-- 🔥 LOGO -->
+    <a class="navbar-brand fw-bold" [routerLink]="menuPetiano.length > 0 ? '/home' : '/'">
       PETIT
     </a>
 
-    <!-- Botão para mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- 📱 BOTÃO MOBILE -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
+
     </button>
 
-    <!-- Links do menu centralizados -->
+    <!-- 🔗 LINKS -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
       <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center">
+
         <li class="nav-item mx-2">
-          <a class="nav-link fw-semibold menu-link" routerLink="/dashboards" routerLinkActive="active"> DashBoard</a>
+          <a class="nav-link menu-link"
+            routerLink="/dashboards"
+            routerLinkActive="active">
+            Dashboard
+          </a>
         </li>
+
         <li class="nav-item mx-2">
-          <a class="nav-link fw-semibold menu-link" routerLink="/livros" routerLinkActive="active"> Livros</a>
+          <a class="nav-link menu-link"
+            routerLink="/livros"
+            routerLinkActive="active">
+            Livros
+          </a>
         </li>
+
         <li class="nav-item mx-2">
-          <a class="nav-link fw-semibold menu-link" routerLink="/emprestimos" routerLinkActive="active"> Empréstimos</a>
+          <a class="nav-link menu-link"
+            routerLink="/emprestimos"
+            routerLinkActive="active">
+            Empréstimos
+          </a>
         </li>
+
         <li class="nav-item mx-2">
-          <a class="nav-link fw-semibold menu-link" routerLink="/estudantes" routerLinkActive="active"> Estudantes</a>
+          <a class="nav-link menu-link"
+            routerLink="/estudantes"
+            routerLinkActive="active">
+            Estudantes
+          </a>
         </li>
+
         <li class="nav-item mx-2">
-          <a class="nav-link fw-semibold menu-link" routerLink="/petianos" routerLinkActive="active"> Petianos</a>
+          <a class="nav-link menu-link"
+            routerLink="/petianos"
+            routerLinkActive="active">
+            Petianos
+          </a>
         </li>
+
       </ul>
+
     </div>
 
-    <!-- Informações do usuário no canto direito -->
-    <div *ngIf="menuPetiano.length > 0" class="d-flex align-items-center ms-auto">
-      <span class="badge bg-light text-dark me-3 p-2 fs-6">
-        {{ nomePetiano }}
+    <!-- 👤 USUÁRIO -->
+    <div *ngIf="menuPetiano.length > 0"
+      class="d-flex align-items-center ms-auto">
+
+      <span class="badge usuario-badge me-3">
+        👤 {{ nomePetiano }}
       </span>
-      <button class="btn btn-outline-light btn-sm" (click)="sair()">
-        <i class="bi bi-box-arrow-right"></i> Sair
+
+      <button class="btn btn-outline-light btn-sm btn-sair"
+        (click)="sair()">
+
+        <i class="bi bi-box-arrow-right"></i>
+        Sair
+
       </button>
+
     </div>
 
   </div>
+
 </nav>

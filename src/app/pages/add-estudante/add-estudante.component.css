@@ -1,28 +1,118 @@
-/* Efeito hover nos botões */
-.btn-success:hover, .btn-secondary:hover {
-  transform: translateY(-2px);
-  transition: transform 0.2s;
+/* 🔥 CONTAINER */
+.estudante-form-container {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 40px;
+  color: white;
 }
 
-/* Sombra leve nos botões */
-.btn-shadow {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+/* 🎓 TÍTULO */
+.titulo-pagina {
+  font-size: 38px;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
 }
 
-/* Input inválido vermelho */
-.is-invalid {
-  border-color: #dc3545;
-}
-
-/* Bordas arredondadas nos inputs */
-.form-control {
-  border-radius: 8px;
-}
-
-/* Pequena sombra no formulário */
+/* 📄 FORMULÁRIO */
 form {
-  background-color: #fff;
-  padding: 20px;
+  background: #1e293b;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+
+/* 🔤 LABELS */
+.form-label {
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 🔥 INPUTS */
+.input-dark {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 14px;
+  transition: 0.2s;
+}
+
+/* 🔥 PLACEHOLDER */
+.input-dark::placeholder {
+  color: #94a3b8;
+}
+
+/* 🔥 FOCUS */
+.input-dark:focus {
+  background: #0f172a;
+  color: white;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.2rem rgba(59,130,246,0.25);
+}
+
+/* 🔥 SELECT */
+.form-select.input-dark {
+  background-color: #0f172a;
+  color: white;
+}
+
+/* ❌ INPUT INVÁLIDO */
+.is-invalid {
+  border-color: #ef4444 !important;
+}
+
+/* ❌ TEXTO ERRO */
+.invalid-feedback {
+  color: #f87171;
+}
+
+/* 💾 BOTÃO SALVAR */
+.btn-salvar {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* 🔥 HOVER */
+.btn-salvar:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #15803d, #16a34a);
+}
+
+/* ❌ BOTÃO CANCELAR */
+.btn-cancelar {
+  background: #334155;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* 🔥 HOVER */
+.btn-cancelar:hover {
+  background: #475569;
+  transform: translateY(-2px);
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+
+  .estudante-form-container {
+    padding: 20px;
+  }
+
+  form {
+    padding: 20px;
+  }
+
 }

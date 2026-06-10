@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AddLivroComponent } from './pages/add-livro/add-livro.component';
 import { LivroComponent } from './pages/livro/livro.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -14,6 +15,7 @@ import { AddPetianoComponent } from './pages/add-petiano/add-petiano.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'dashboards', component: DashboardComponent },
     { path: 'livros', component: LivroComponent},
     { path: 'add-livro', component: AddLivroComponent},
     { path: 'add-livro/:id', component: AddLivroComponent},
@@ -26,5 +28,5 @@ export const routes: Routes = [
     { path: 'add-estudante/:id', component: AddEstudanteComponent},
     { path: 'petianos', component: PetianoComponent},
     { path: 'add-petiano', component: AddPetianoComponent},
-    { path: 'add-petiano/:id', component: AddEstudanteComponent}
+    { path: 'add-petiano/:id', component: AddPetianoComponent }
 ];

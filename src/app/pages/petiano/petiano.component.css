@@ -1,24 +1,203 @@
-/* Hover suave nas linhas da tabela */
-.table-hover tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+/* 🔥 CONTAINER */
+.petianos-container {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 40px;
+  color: white;
 }
 
-/* Botão Cadastrar destacado */
-.btn-primary {
-  transition: background-color 0.3s, transform 0.2s;
+/* 👥 TÍTULO */
+.titulo-pagina {
+  font-size: 42px;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+/* ➕ TOPO */
+.acoes-topo {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+/* 🔥 BOTÃO */
+.btn-cadastrar {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-cadastrar:hover {
+  background: #1d4ed8;
   transform: translateY(-2px);
 }
 
-/* Tabela com borda arredondada e sombra */
-.table {
-  border-radius: 10px;
+/* 📋 TABELA */
+.table-petianos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
-.table-responsive {
-  overflow-x: auto;
+/* 🔥 HEADER */
+.table-petianos thead {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+}
+
+.table-petianos th {
+  padding: 18px 16px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* 📄 CÉLULAS */
+.table-petianos td {
+  padding: 18px 16px;
+  color: #e2e8f0;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* 🎨 LINHAS */
+.table-petianos tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+/* 🔥 HOVER */
+.table-petianos tbody tr {
+  transition: 0.2s;
+}
+
+.table-petianos tbody tr:hover {
+  background: rgba(59,130,246,0.12);
+}
+
+/* 🎯 CENTRALIZA */
+.table-petianos td:nth-child(1),
+.table-petianos td:nth-child(3),
+.table-petianos td:nth-child(5),
+.table-petianos th:nth-child(1),
+.table-petianos th:nth-child(3),
+.table-petianos th:nth-child(5) {
+  text-align: center;
+}
+
+/* 🏷️ BADGE NÍVEL */
+.badge-nivel {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* 🔴 ADMIN */
+.admin {
+  background: rgba(239,68,68,0.15);
+  color: #ef4444;
+}
+
+/* 🔵 PETIANO */
+.petiano {
+  background: rgba(59,130,246,0.15);
+  color: #60a5fa;
+}
+
+/* ✏️ EDITAR */
+.btn-editar {
+  background: #facc15;
+  color: black;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 10px;
+  margin-right: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background: #eab308;
+  transform: scale(1.03);
+}
+
+/* 🗑️ EXCLUIR */
+.btn-excluir {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn-excluir:hover {
+  background: #dc2626;
+  transform: scale(1.03);
+}
+
+/* ❌ SEM DADOS */
+.sem-dados {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 20px;
+  color: #cbd5e1;
+}
+
+/* ⏳ LOADING */
+.loading-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+
+  .petianos-container {
+    padding: 20px;
+  }
+
+  .titulo-pagina {
+    font-size: 32px;
+  }
+
+  .acoes-topo {
+    justify-content: center;
+  }
+
+  .table-petianos {
+    font-size: 13px;
+  }
+
+  .table-petianos th,
+  .table-petianos td {
+    padding: 12px;
+  }
+
+  .btn-editar,
+  .btn-excluir {
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
 }

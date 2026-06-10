@@ -1,0 +1,143 @@
+.home-container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #020617,
+      #0f172a,
+      #1e293b
+    );
+
+  color: white;
+
+  padding: 40px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 50px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: #cbd5e1;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+}
+
+/* CARDS */
+.funcionalidades {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 25px;
+}
+
+.func-card {
+
+  background: rgba(30, 41, 59, .95);
+
+  border: 1px solid rgba(255,255,255,.06);
+
+  border-radius: 20px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.func-card:hover {
+
+  transform: translateY(-8px);
+
+  border-color: #3b82f6;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  box-shadow:
+    0 15px 35px rgba(37,99,235,.25);
+}
+
+.func-icon {
+
+  font-size: 48px;
+
+  color: #60a5fa;
+
+  margin-bottom: 18px;
+}
+
+.func-card h3 {
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.func-card p {
+
+  color: #cbd5e1;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+  .home-container {
+    padding: 25px;
+  }
+
+  .hero {
+    margin-bottom: 35px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .func-card {
+    padding: 28px;
+  }
+
+}

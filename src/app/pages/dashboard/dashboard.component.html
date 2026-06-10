@@ -1,0 +1,110 @@
+<!-- 🔥 TOPO DASHBOARD -->
+<div class="topo-dashboard">
+
+  <!-- 📄 EXPORTAR PDF -->
+  <button
+    class="btn-exportar"
+    (click)="exportarPDF()"
+  >
+    📄 Exportar PDF
+  </button>
+
+  <!-- 📅 FILTRO -->
+  <div class="filtro-container">
+
+    <label>📅 Período:</label>
+
+    <select (change)="onPeriodoChange($event)">
+      <option value="todos" selected>Todos</option>
+      <option value="7">Últimos 7 dias</option>
+      <option value="30">Últimos 30 dias</option>
+      <option value="90">Últimos 90 dias</option>
+      <option value="365">Últimos 12 meses</option>
+      <option value="730">Últimos 24 meses</option>
+    </select>
+
+  </div>
+
+</div>
+
+<!-- 🔥 ÁREA EXPORTADA -->
+<div id="dashboardPDF">
+
+  <!-- 📊 CARDS -->
+  <div class="dashboard">
+
+    <div class="card">
+      <div class="titulo"> Estudantes</div>
+      <div class="valor">{{ totalEstudantes }}</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo"> Livros</div>
+      <div class="valor">{{ totalLivros }}</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo"> Empréstimos</div>
+      <div class="valor">{{ totalEmprestimos }}</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo"> Ativos</div>
+      <div class="valor">{{ totalAtivos }}</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo"> Devolvidos</div>
+      <div class="valor">{{ totalDevolvidos }}</div>
+    </div>
+
+    <div class="card">
+      <div class="titulo"> Atrasados</div>
+      <div class="valor">{{ totalAtrasados }}</div>
+    </div>
+
+    <div class="card destaque">
+      <div class="titulo"> Multas</div>
+      <div class="valor">
+        {{ totalMultas | currency:'BRL' }}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 📊 GRÁFICOS -->
+  <div class="graficos-container">
+
+    <!-- 📊 Pizza -->
+    <div class="grafico">
+
+      <h5 class="titulo-grafico">
+        Status dos Empréstimos
+      </h5>
+
+      <canvas
+        baseChart
+        [data]="pieChartData"
+        [type]="pieChartType">
+      </canvas>
+
+    </div>
+
+    <!-- 📈 Barra -->
+    <div class="grafico">
+
+      <h5 class="titulo-grafico">
+        Empréstimos por Mês
+      </h5>
+
+      <canvas
+        baseChart
+        [data]="barChartData"
+        [type]="barChartType">
+      </canvas>
+
+    </div>
+
+  </div>
+
+</div>

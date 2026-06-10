@@ -1,74 +1,255 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+<div class="petiano-form-container">
 
-  
-          <div class="row">
-              <div class="col-md-12 text-center">
-                  <img [src]="imagemPetiano || 'assets/petiano-padrao.png'" class="img-petiano" (click)="abrirInputImagem()">  
-                  <input type="file" id="inputImagem" hidden class="form-control" (change)="carregarImagem($event)">
-              </div>
-          </div>
+  <!-- 👥 TÍTULO -->
+  <h2 class="titulo-pagina">
 
+    {{ formGroup.value.id
+      ? '✏️ Editar Petiano'
+      : '👥 Cadastrar Petiano' }}
 
-  <div class="mb-3">
-    <label for="dataEntrada" class="form-label">Data de Entrada</label>
-    <input id="dataEntrada" type="date" class="form-control" formControlName="dataEntrada"
-           [ngClass]="{'is-invalid': formGroup.get('dataEntrada')?.invalid && formGroup.get('dataEntrada')?.touched}">
-    <div class="invalid-feedback">A data é obrigatória.</div>
-  </div>
+  </h2>
 
-  <div class="row mb-3">
-    <div class="col-md-6">
-      <label for="estudante" class="form-label">Estudante</label>
-      <select class="form-select" formControlName="estudante">
-        <option [ngValue]="null" disabled>Selecione um Estudante</option>
-        <option *ngFor="let estudante of listaEstudantes" [ngValue]="estudante.id">{{ estudante.nome }}</option>
-      </select>
-      <div class="invalid-feedback">O Estudante é obrigatório.</div>
+  <!-- 📄 FORM -->
+  <form
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()"
+  >
+
+    <!-- 🖼️ FOTO -->
+    <div class="foto-container">
+
+      <img
+        [src]="imagemPetiano || 'assets/petiano-padrao.png'"
+        class="img-petiano"
+        (click)="abrirInputImagem()"
+      >
+
+      <input
+        type="file"
+        id="inputImagem"
+        hidden
+        (change)="carregarImagem($event)"
+      >
+
+      <p class="texto-foto">
+        Clique na imagem para alterar
+      </p>
+
     </div>
 
-    <div class="col-md-6">
-      <label for="tipo" class="form-label">Tipo</label>
-      <select id="tipo" class="form-select" formControlName="tipo"
-              [ngClass]="{'is-invalid': formGroup.get('tipo')?.invalid && formGroup.get('tipo')?.touched}">
-        <option value="" disabled selected>Selecione o tipo</option>
-        <option value="BOLSISTA">Bolsista</option>
-        <option value="VOLUNTARIO">Voluntário</option>
-        <option value="EGRESSO">Egresso</option>
-      </select>
-      <div class="invalid-feedback">O Tipo é obrigatório.</div>
-    </div>
-  </div>
+    <!-- 📅 DATA -->
+    <div class="mb-4">
 
-  <div class="row">
-    <div class="col-md-3 mb-3">
-      <label for="login" class="form-label">Login</label>
-      <input id="login" type="text" class="form-control"
-             formControlName="login"
-             [ngClass]="{'is-invalid': mensagemErroLogin}"
-             (blur)="verificarLogin()">
-      <div *ngIf="mensagemErroLogin" class="text-danger small mt-1">{{ mensagemErroLogin }}</div>
+      <label
+        for="dataEntrada"
+        class="form-label"
+      >
+
+        Data de Entrada
+
+      </label>
+
+      <input
+        id="dataEntrada"
+        type="date"
+        class="form-control"
+        formControlName="dataEntrada"
+        [ngClass]="{
+          'is-invalid':
+          formGroup.get('dataEntrada')?.invalid &&
+          formGroup.get('dataEntrada')?.touched
+        }"
+      >
+
+      <div class="invalid-feedback">
+        A data é obrigatória.
+      </div>
+
     </div>
 
-    <div class="col-md-3 mb-3">
-      <label for="senha" class="form-label">Senha</label>
-      <input id="senha" type="password" class="form-control" formControlName="senha">
+    <!-- 👤 ESTUDANTE / TIPO -->
+    <div class="row mb-4">
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Estudante
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="estudante"
+        >
+
+          <option [ngValue]="null" disabled>
+            Selecione um estudante
+          </option>
+
+          <option
+            *ngFor="let estudante of listaEstudantes"
+            [ngValue]="estudante.id"
+          >
+
+            {{ estudante.nome }}
+
+          </option>
+
+        </select>
+
+        <div class="invalid-feedback">
+          O estudante é obrigatório.
+        </div>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Tipo
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="tipo"
+          [ngClass]="{
+            'is-invalid':
+            formGroup.get('tipo')?.invalid &&
+            formGroup.get('tipo')?.touched
+          }"
+        >
+
+          <option value="" disabled>
+            Selecione o tipo
+          </option>
+
+          <option value="BOLSISTA">
+            Bolsista
+          </option>
+
+          <option value="VOLUNTARIO">
+            Voluntário
+          </option>
+
+          <option value="EGRESSO">
+            Egresso
+          </option>
+
+        </select>
+
+        <div class="invalid-feedback">
+          O tipo é obrigatório.
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="col-md-6 mb-3">
-      <label for="nivelAcesso" class="form-label">Nível de Acesso</label>
-      <select class="form-select" formControlName="nivelAcesso">
-        <option value="" disabled>Selecione um nível de acesso</option>
-        <option value="NIVEL1">Nível 1</option>
-        <option value="NIVEL2">Nível 2</option>
-        <option value="NIVEL3">Nível 3</option>
-      </select>
-    </div>
-  </div>
+    <!-- 🔐 LOGIN / SENHA / NÍVEL -->
+    <div class="row">
 
-  <div class="d-flex justify-content-between mt-4">
-    <a routerLink="/petianos" class="btn btn-secondary shadow-sm">Cancelar</a>
-    <button type="submit" class="btn btn-success shadow-sm" [disabled]="formGroup.invalid">
-      {{ formGroup.value.id ? 'Atualizar' : 'Cadastrar' }}
-    </button>
-  </div>
-</form>
+      <!-- LOGIN -->
+      <div class="col-md-3 mb-4">
+
+        <label class="form-label">
+          Login
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          formControlName="login"
+          [ngClass]="{
+            'is-invalid': mensagemErroLogin
+          }"
+          (blur)="verificarLogin()"
+        >
+
+        <div
+          *ngIf="mensagemErroLogin"
+          class="mensagem-erro"
+        >
+
+          {{ mensagemErroLogin }}
+
+        </div>
+
+      </div>
+
+      <!-- SENHA -->
+      <div class="col-md-3 mb-4">
+
+        <label class="form-label">
+          Senha
+        </label>
+
+        <input
+          type="password"
+          class="form-control"
+          formControlName="senha"
+        >
+
+      </div>
+
+      <!-- NÍVEL -->
+      <div class="col-md-6 mb-4">
+
+        <label class="form-label">
+          Nível de Acesso
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="nivelAcesso"
+        >
+
+          <option value="" disabled>
+            Selecione um nível
+          </option>
+
+          <option value="NIVEL1">
+            Nível 1
+          </option>
+
+          <option value="NIVEL2">
+            Nível 2
+          </option>
+
+          <option value="NIVEL3">
+            Nível 3
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <!-- 🔥 BOTÕES -->
+    <div class="botoes-formulario">
+
+      <a
+        routerLink="/petianos"
+        class="btn-cancelar"
+      >
+
+        Cancelar
+
+      </a>
+
+      <button
+        type="submit"
+        class="btn-salvar"
+        [disabled]="formGroup.invalid"
+      >
+
+        {{ formGroup.value.id
+          ? 'Atualizar'
+          : 'Cadastrar' }}
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>

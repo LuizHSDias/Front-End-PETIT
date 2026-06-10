@@ -1,43 +1,55 @@
-<div class="container mt-5">
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">👨‍🎓 Estudante</h2>
+<div class="estudantes-container">
 
-  <!-- 🔹 Barra de ações: busca + botão cadastrar + total de ativos -->
-  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-    <!-- Campo de busca -->
+  <!-- 👨‍🎓 TÍTULO -->
+  <h2 class="titulo-pagina">
+    👨‍🎓 Estudantes
+  </h2>
+
+  <!-- 🔍 TOPO -->
+  <div class="topo-container">
+
+    <!-- 🔎 BUSCA -->
     <input
       type="text"
-      class="form-control w-50 mb-2"
+      class="input-busca"
       placeholder="Buscar por nome..."
       [(ngModel)]="filtroNome"
       (input)="buscarPorNome()"
     />
 
-    <!-- Badge com total de ativos -->
-    <span class="badge bg-success fs-6 mb-2"> Ativos: {{ totalAtivos }} </span>
+    <!-- 🟢 TOTAL -->
+    <span class="badge-ativos">
+      Ativos: {{ totalAtivos }}
+    </span>
 
-    <!-- Botão cadastrar -->
+    <!-- ➕ BOTÃO -->
     <a
       routerLink="/add-estudante"
-      class="btn btn-primary btn-lg shadow-sm mb-2"
+      class="btn-cadastrar"
     >
       + Cadastrar
     </a>
+
   </div>
 
-  <!-- 🔹 Spinner de carregamento -->
-  <div *ngIf="mensagemDados" class="text-center my-3">
+  <!-- ⏳ LOADING -->
+  <div *ngIf="mensagemDados" class="loading-container">
+
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Carregando...</span>
     </div>
+
     <p class="mt-2">Aguarde, carregando dados...</p>
+
   </div>
 
-  <!-- 🔹 Tabela responsiva -->
-  <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
-    <table
-      class="table table-striped table-hover align-middle shadow-sm rounded"
-    >
-      <thead class="table-dark">
+  <!-- 📋 TABELA -->
+  <div class="table-responsive"
+       *ngIf="!mensagemDados && lista.length > 0">
+
+    <table class="table-estudantes">
+
+      <thead>
         <tr>
           <th>Nome</th>
           <th>E-mail</th>
@@ -48,72 +60,94 @@
           <th class="text-center">Ações</th>
         </tr>
       </thead>
+
       <tbody>
+
         <tr *ngFor="let estudante of lista">
+
           <td>{{ estudante.nome }}</td>
+
           <td>{{ estudante.email }}</td>
+
           <td>{{ estudante.telefone }}</td>
+
           <td>{{ estudante.curso }}</td>
+
           <td>{{ estudante.matricula }}</td>
+
           <td>
+
             <span
+              class="badge-status"
               [ngClass]="{
-                'badge bg-success-subtle text-success px-3 py-2':
-                  estudante.ativo,
-                'badge bg-secondary-subtle text-secondary px-3 py-2':
-                  !estudante.ativo,
-              }"
-            >
-              {{ estudante.ativo ? "Ativo" : "Inativo" }}
+                'ativo': estudante.ativo,
+                'inativo': !estudante.ativo
+              }">
+
+              {{ estudante.ativo ? 'Ativo' : 'Inativo' }}
+
             </span>
+
           </td>
+
           <td class="text-center">
-            <div class="d-flex justify-content-center gap-2">
-              <button
-                class="btn btn-sm btn-warning d-flex align-items-center gap-1"
-                (click)="editar(estudante.id)"
-              >
-                ✏️ <span>Editar</span>
-              </button>
-              <button
-                class="btn btn-sm btn-danger d-flex align-items-center gap-1"
-                (click)="excluir(estudante.id!)"
-              >
-                🗑️ <span>Excluir</span>
-              </button>
-            </div>
+
+            <button
+              class="btn-editar"
+              (click)="editar(estudante.id)"
+            >
+              ✏️ Editar
+            </button>
+
+            <button
+              class="btn-excluir"
+              (click)="excluir(estudante.id!)"
+            >
+              🗑️ Excluir
+            </button>
+
           </td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </div>
 
-  <!-- 🔹 Mensagem caso não haja dados -->
+  <!-- ❌ SEM DADOS -->
   <div
     *ngIf="!mensagemDados && lista.length === 0"
-    class="alert alert-info text-center mt-3"
+    class="sem-dados"
   >
     Nenhum estudante encontrado.
   </div>
 
-  <!-- 🔹 Paginação -->
-  <div class="d-flex justify-content-center mt-3" *ngIf="totalPaginas > 1">
+  <!-- 📄 PAGINAÇÃO -->
+  <div class="paginacao"
+       *ngIf="totalPaginas > 1">
+
     <button
-      class="btn btn-outline-primary me-2"
+      class="btn-paginacao"
       [disabled]="paginaAtual === 0"
       (click)="paginaAnterior()"
     >
       ◀ Anterior
     </button>
-    <span class="align-self-center">
+
+    <span class="texto-paginacao">
       Página {{ paginaAtual + 1 }} de {{ totalPaginas }}
     </span>
+
     <button
-      class="btn btn-outline-primary ms-2"
+      class="btn-paginacao"
       [disabled]="paginaAtual + 1 >= totalPaginas"
       (click)="proximaPagina()"
     >
       Próxima ▶
     </button>
+
   </div>
+
 </div>

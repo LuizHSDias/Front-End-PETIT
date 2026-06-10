@@ -1,27 +1,37 @@
-<div class="container mt-5">
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">📖 Empréstimos</h2>
+<div class="emprestimos-container">
 
-  <!-- Botão Cadastrar -->
-  <div class="d-flex justify-content-end mb-3">
-    <a routerLink="/add-emprestimo" class="btn btn-primary btn-lg shadow-sm">
+  <!-- 📖 TÍTULO -->
+  <h2 class="titulo-pagina">
+    📖 Empréstimos
+  </h2>
+
+  <!-- ➕ BOTÃO -->
+  <div class="acoes-topo">
+
+    <a routerLink="/add-emprestimo" class="btn-cadastrar">
       + Cadastrar
     </a>
+
   </div>
 
-  <!-- Spinner de carregamento -->
-  <div *ngIf="mensagemDados" class="text-center my-3">
+  <!-- ⏳ LOADING -->
+  <div *ngIf="mensagemDados" class="loading-container">
+
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Carregando...</span>
     </div>
+
     <p class="mt-2">Aguarde, carregando dados...</p>
+
   </div>
 
-  <!-- Tabela responsiva -->
-  <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
-    <table
-      class="table table-striped table-hover align-middle shadow-sm rounded"
-    >
-      <thead class="table-dark">
+  <!-- 📚 TABELA -->
+  <div class="table-responsive"
+       *ngIf="!mensagemDados && lista.length > 0">
+
+    <table class="table-emprestimos">
+
+      <thead>
         <tr>
           <th>Livro</th>
           <th>Petiano</th>
@@ -32,39 +42,61 @@
           <th class="text-center">Ações</th>
         </tr>
       </thead>
+
       <tbody>
+
         <tr *ngFor="let emprestimo of lista">
+
           <td>{{ emprestimo.livro?.titulo }}</td>
-          <td>{{ emprestimo.petiano?.estudante?.nome }}</td>
-          <td>{{ emprestimo.estudante?.nome }}</td>
-          <td>{{ emprestimo.dataEmprestimo }}</td>
-          <td>{{ emprestimo.prazoMaximo }}</td>
-          <td>{{ emprestimo.dataDevolucao }}</td>
+
+          <td>
+            {{ emprestimo.petiano?.estudante?.nome }}
+          </td>
+
+          <td>
+            {{ emprestimo.estudante?.nome }}
+          </td>
+
+          <td>
+            {{ emprestimo.dataEmprestimo }}
+          </td>
+
+          <td>
+            {{ emprestimo.prazoMaximo }}
+          </td>
+
+          <td>
+            {{ emprestimo.dataDevolucao || '—' }}
+          </td>
+
           <td class="text-center">
-  <div class="d-flex justify-content-center gap-2">
-    
-    <button class="btn btn-sm btn-warning d-flex align-items-center gap-1"
-            (click)="editar(emprestimo.id)">
-      ✏️ <span>Editar</span>
-    </button>
 
-    <button class="btn btn-sm btn-danger d-flex align-items-center gap-1"
-            (click)="excluir(emprestimo.id!)">
-      🗑️ <span>Excluir</span>
-    </button>
+            <button class="btn-editar"
+                    (click)="editar(emprestimo.id)">
+              ✏️ Editar
+            </button>
 
-  </div>
-</td>
+            <button class="btn-excluir"
+                    (click)="excluir(emprestimo.id!)">
+              🗑️ Excluir
+            </button>
+
+          </td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </div>
 
-  <!-- Mensagem caso não haja dados -->
-  <div
-    *ngIf="!mensagemDados && lista.length === 0"
-    class="alert alert-info text-center mt-3"
-  >
+  <!-- ❌ SEM DADOS -->
+  <div *ngIf="!mensagemDados && lista.length === 0"
+       class="sem-dados">
+
     Nenhum empréstimo encontrado.
+
   </div>
+
 </div>

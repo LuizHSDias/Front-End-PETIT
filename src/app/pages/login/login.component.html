@@ -1,33 +1,88 @@
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px; border-radius: 15px;">
-    
-    <h2 class="card-title text-center mb-4 text-primary fw-bold border-bottom pb-2">
-      Autenticar Petiano
-    </h2>
+<div class="login-container">
+  <div class="login-card">
+    <!-- LOGO -->
+    <div class="logo-container">
+      <div class="logo-icon">
+        <i class="bi bi-journal-bookmark-fill"></i>
+      </div>
+
+      <h1 class="logo-titulo">PETIT</h1>
+
+      <p class="logo-subtitulo">Sistema de Controle de Empréstimos</p>
+    </div>
+
+    <!-- TÍTULO -->
+    <h2 class="titulo-login">Bem-vindo</h2>
+
+    <p class="descricao-login">
+      Entre com suas credenciais para acessar o sistema.
+    </p>
 
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      
-      <div class="mb-3">
-        <label for="login" class="form-label fw-semibold">Login</label>
-        <input id="login" type="text" class="form-control form-control-lg" formControlName="login" placeholder="Digite seu login">
+      <!-- CPF -->
+      <div class="mb-4">
+        <label for="login" class="form-label"> CPF </label>
+
+        <input
+          id="login"
+          type="text"
+          class="form-control"
+          formControlName="login"
+          placeholder="000.000.000-00"
+          maxlength="14"
+          (input)="formatarCpf($event)"
+        />
       </div>
 
-      <div class="mb-3">
-        <label for="senha" class="form-label fw-semibold">Senha</label>
-        <input id="senha" type="password" class="form-control form-control-lg" formControlName="senha" placeholder="Digite sua senha">
+      <!-- SENHA -->
+      <div class="mb-4">
+        <label for="senha" class="form-label"> Senha </label>
+
+        <div class="password-wrapper">
+          <input
+            id="senha"
+            [type]="mostrarSenha ? 'text' : 'password'"
+            class="form-control"
+            formControlName="senha"
+            placeholder="Digite sua senha"
+          />
+
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="mostrarSenha = !mostrarSenha"
+          >
+            <i *ngIf="!mostrarSenha" class="bi bi-eye"></i>
+
+            <i *ngIf="mostrarSenha" class="bi bi-eye-slash"></i>
+          </button>
+        </div>
+
+        <div class="forgot-password">
+
+  <a
+    routerLink="/recuperar-senha"
+    class="forgot-link"
+  >
+    Esqueceu sua senha?
+  </a>
+
+</div>
+
       </div>
 
-      <div class="d-grid mt-4">
-        <button type="submit" class="btn btn-primary btn-lg" [disabled]="formGroup.invalid">
-          Entrar
-        </button>
-      </div>
-
+      <!-- BOTÃO -->
+      <button type="submit" class="btn-entrar" [disabled]="formGroup.invalid">
+        Entrar
+      </button>
     </form>
 
-    <div *ngIf="mensagemDados" class="alert alert-info text-center mt-3 mb-0">
+    <!-- LOADING -->
+    <div *ngIf="mensagemDados" class="loading-login">
       Aguarde, autenticando dados...
     </div>
 
+    <!-- RODAPÉ -->
+    <div class="footer-login">PETIT • CEFET-MG</div>
   </div>
 </div>

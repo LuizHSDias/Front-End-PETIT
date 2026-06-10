@@ -1,40 +1,53 @@
-<div class="container mt-5">
+<div class="livros-container">
 
-  <h2 class="mb-4 text-primary fw-bold border-bottom pb-2">
+  <!-- 🔥 TÍTULO -->
+  <h2 class="titulo-pagina">
     📚 Livros
   </h2>
 
-  <div class="d-flex gap-2 mb-3">
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Buscar por título..."
-    [(ngModel)]="filtroTitulo"
-  />
-  <button class="btn btn-primary" (click)="buscarPorTitulo()">
-    🔍 Buscar
-  </button>
-</div>
+  <!-- 🔍 BUSCA -->
+  <div class="busca-container">
 
-  <!-- Botão Cadastrar -->
-  <div class="d-flex justify-content-end mb-3">
-    <a routerLink="/add-livro" class="btn btn-primary btn-lg shadow-sm">
-      + Cadastrar
-    </a>
+    <input
+      type="text"
+      class="input-busca"
+      placeholder="Buscar por título..."
+      [(ngModel)]="filtroTitulo"
+    />
+
+    <button class="btn-buscar" (click)="buscarPorTitulo()">
+      🔍 Buscar
+    </button>
+
   </div>
 
-  <!-- Spinner de carregamento -->
-  <div *ngIf="mensagemDados" class="text-center my-3">
+  <!-- ➕ BOTÃO -->
+  <div class="acoes-topo">
+
+    <a routerLink="/add-livro" class="btn-cadastrar">
+      + Cadastrar
+    </a>
+
+  </div>
+
+  <!-- ⏳ LOADING -->
+  <div *ngIf="mensagemDados" class="loading-container">
+
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Carregando...</span>
     </div>
+
     <p class="mt-2">Aguarde, carregando dados...</p>
+
   </div>
 
-  <!-- Tabela responsiva -->
-  <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
-    <table class="table table-striped table-hover align-middle shadow-sm rounded">
-      <thead class="table-dark">
+  <!-- 📚 TABELA -->
+  <div class="table-responsive"
+       *ngIf="!mensagemDados && lista.length > 0">
+
+    <table class="table-livros">
+
+      <thead>
         <tr>
           <th>Título</th>
           <th>Autor</th>
@@ -45,30 +58,46 @@
           <th class="text-center">Ações</th>
         </tr>
       </thead>
+
       <tbody>
+
         <tr *ngFor="let livro of lista">
+
           <td>{{ livro.titulo }}</td>
           <td>{{ livro.autor }}</td>
           <td>{{ livro.editora }}</td>
           <td>{{ livro.ano }}</td>
           <td>{{ livro.isbn }}</td>
           <td>{{ livro.genero }}</td>
+
           <td class="text-center">
-            <button class="btn btn-sm btn-warning me-2" (click)="editar(livro.id)">
+
+            <button class="btn-editar"
+                    (click)="editar(livro.id)">
               ✏️ Editar
             </button>
-            <button class="btn btn-sm btn-danger" (click)="excluir(livro.id!)">
-             🗑️ Excluir
+
+            <button class="btn-excluir"
+                    (click)="excluir(livro.id!)">
+              🗑️ Excluir
             </button>
+
           </td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </div>
 
-  <!-- Mensagem caso não haja dados -->
-  <div *ngIf="!mensagemDados && lista.length === 0" class="alert alert-info text-center mt-3">
+  <!-- ❌ SEM DADOS -->
+  <div *ngIf="!mensagemDados && lista.length === 0"
+       class="sem-dados">
+
     Nenhum livro encontrado.
+
   </div>
 
 </div>
