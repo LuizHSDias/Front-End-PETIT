@@ -72,6 +72,18 @@ Sistema desenvolvido para o PETIT (Programa de Educação Tutorial Interdiscipli
 
 ---
 
+## 📸 Telas do Sistema
+
+### Login
+
+![Tela de Login](./screenshots/Login.png)
+
+### Dashboard
+
+![Dashboard](./screenshots/Home.png)
+
+--- 
+
 ## Executando o Front-End
 
 ### Pré-requisitos
@@ -132,5 +144,3 @@ O Back-End e suas configurações internas não estão disponíveis publicamente
 **Luiz Henrique Santos Dias**
 
 Estudante de Engenharia de Computação - CEFET-MG
-
-Membro do PETIT (Programa de Educação Tutorial Interdisciplinar de Timóteo)
