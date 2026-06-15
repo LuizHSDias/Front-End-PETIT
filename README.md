@@ -84,58 +84,15 @@ Sistema desenvolvido para o PETIT (Programa de Educação Tutorial Interdiscipli
 
 --- 
 
-## Executando o Front-End
-
-### Pré-requisitos
-
-- Node.js 18 ou superior
-- Angular CLI 17
-
-### Verificando as versões instaladas
-
-```bash
-node -v
-npm -v
-ng version
-```
-
-### Clonando o repositório
-
-```bash
-git clone https://github.com/LuizHSDias/Front-End-PETIT
-```
-
-### Acessando a pasta do projeto
-
-```bash
-cd APP
-```
-
-### Instalando as dependências
-
-```bash
-npm install
-```
-
-### Executando a aplicação
-
-```bash
-ng serve
-```
-
-A aplicação estará disponível em:
-
-```text
-http://localhost:4200
-```
-
----
-
 ## Observações
 
 Este repositório contém apenas o Front-End da aplicação.
 
-O Back-End e suas configurações internas não estão disponíveis publicamente por questões de segurança e privacidade.
+O sistema depende de uma API desenvolvida em Spring Boot para autenticação, gerenciamento de dados e regras de negócio.
+
+Por questões de segurança e privacidade, o Back-End e suas configurações internas não estão disponíveis publicamente.
+
+As imagens apresentadas neste repositório demonstram as funcionalidades implementadas na interface da aplicação.
 
 ---
 
