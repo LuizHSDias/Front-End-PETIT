@@ -1,27 +1,74 @@
-# PetitApp
+# PETIT - Sistema de Controle de Empréstimo de Livros
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+Sistema desenvolvido para o PETIT (Programa de Educação Tutorial Interdisciplinar de Timóteo - CEFET-MG) com o objetivo de auxiliar no gerenciamento de livros, estudantes, petianos e empréstimos.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Livros
+- Cadastro de livros
+- Edição e exclusão
+- Busca por título
+- Controle de ISBN, gênero, editora e autor
 
-## Code scaffolding
+### Estudantes
+- Cadastro de estudantes
+- Controle de matrícula
+- Controle de status (ativo/inativo)
+- Busca por nome
+- Paginação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Petianos
+- Cadastro de petianos
+- Controle de níveis de acesso
+- Login e senha
+- Upload de imagem de perfil
 
-## Build
+### Empréstimos
+- Registro de empréstimos
+- Controle de datas de empréstimo e devolução
+- Associação entre livro, estudante e petiano
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Dashboard
+- Total de estudantes
+- Total de livros
+- Total de empréstimos
+- Empréstimos ativos
+- Empréstimos devolvidos
+- Empréstimos atrasados
+- Total de multas
+- Gráficos estatísticos
+- Exportação para PDF
 
-## Running unit tests
+### Autenticação
+- Login com JWT
+- Controle de acesso por perfil
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🛠 Tecnologias Utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Back-End
+- Java 17
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Spring Mail
+- JWT Authentication
+- Maven
 
-## Further help
+### Front-End
+- Angular 17
+- TypeScript
+- Bootstrap 5
+- Chart.js
+- jsPDF
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Banco de Dados
+- MySQL (desenvolvimento)
+- PostgreSQL (produção)
+
+### Deploy
+- Render
+- Docker
+
+---

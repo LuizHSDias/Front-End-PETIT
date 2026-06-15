@@ -63,8 +63,13 @@ export class MenuComponent {
     }
   }
 
-  sair(): void {
-    this.loginService.limparToken();
-    this.atualizarMenu();
-  }
+sair(): void {
+
+  this.loginService.limparToken();
+
+  this.atualizarMenu();
+
+  this.router.navigate(['/']);
+
+}
 }

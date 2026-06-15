@@ -28,14 +28,16 @@
 
 .hero-content {
   text-align: center;
-  max-width: 800px;
+  max-width: 850px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 46px;
   font-weight: 800;
 
   margin-bottom: 16px;
+
+  letter-spacing: -1px;
 }
 
 .hero p {
@@ -55,6 +57,11 @@
     repeat(auto-fit, minmax(260px, 1fr));
 
   gap: 25px;
+
+  max-width: 1500px;
+  width: 100%;
+
+  margin: 0 auto;
 }
 
 .func-card {
@@ -76,6 +83,28 @@
   cursor: pointer;
 
   transition: .25s;
+
+  min-height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  animation: aparecer .5s ease;
+}
+
+/* DESTAQUE DASHBOARD */
+.dashboard {
+
+  border-color:
+    rgba(59,130,246,.35);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(59,130,246,.08),
+      rgba(30,41,59,.95)
+    );
 }
 
 .func-card:hover {
@@ -92,11 +121,11 @@
 
 .func-icon {
 
-  font-size: 48px;
+  font-size: 52px;
 
   color: #60a5fa;
 
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .func-card h3 {
@@ -115,6 +144,23 @@
   font-size: 15px;
 
   line-height: 1.6;
+
+  margin-bottom: 0;
+}
+
+/* ANIMAÇÃO */
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
 /* RESPONSIVO */
@@ -138,6 +184,11 @@
 
   .func-card {
     padding: 28px;
+    min-height: 200px;
+  }
+
+  .func-icon {
+    font-size: 42px;
   }
 
 }

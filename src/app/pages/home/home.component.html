@@ -5,11 +5,11 @@
 
     <div class="hero-content">
 
-      <h1>Bem-vindo(a) ao PETIT</h1>
+      <h1>Sistema PETIT</h1>
 
       <p>
-        Sistema de gerenciamento de livros,
-        empréstimos, estudantes e petianos.
+        Gerencie livros, empréstimos, estudantes e petianos
+        em uma única plataforma.
       </p>
 
     </div>
@@ -19,13 +19,32 @@
   <!-- FUNCIONALIDADES -->
   <section class="funcionalidades">
 
+    <!-- DASHBOARD -->
+    <a
+      routerLink="/dashboards"
+      class="func-card dashboard"
+    >
+
+      <div class="func-icon">
+        <i class="bi bi-bar-chart-fill"></i>
+      </div>
+
+      <h3>Dashboard</h3>
+
+      <p>
+        Acompanhe indicadores e métricas do PETIT.
+      </p>
+
+    </a>
+
+    <!-- LIVROS -->
     <a
       routerLink="/livros"
       class="func-card"
     >
 
       <div class="func-icon">
-       <i class="bi bi-book-fill"></i>
+        <i class="bi bi-book-fill"></i>
       </div>
 
       <h3>Livros</h3>
@@ -36,6 +55,7 @@
 
     </a>
 
+    <!-- EMPRÉSTIMOS -->
     <a
       routerLink="/emprestimos"
       class="func-card"
@@ -53,6 +73,7 @@
 
     </a>
 
+    <!-- ESTUDANTES -->
     <a
       routerLink="/estudantes"
       class="func-card"
@@ -70,6 +91,7 @@
 
     </a>
 
+    <!-- PETIANOS -->
     <a
       routerLink="/petianos"
       class="func-card"

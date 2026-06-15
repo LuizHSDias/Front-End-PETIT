@@ -23,6 +23,7 @@ export class AppComponent {
   mostrarMenu(): boolean {
 
     const paginasSemMenu = [
+      '/',
       '/login',
       '/home'
     ];

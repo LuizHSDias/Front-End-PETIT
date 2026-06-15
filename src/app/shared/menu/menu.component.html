@@ -1,91 +1,87 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-petit shadow-sm">
-
   <div class="container">
-
     <!-- 🔥 LOGO -->
-    <a class="navbar-brand fw-bold" [routerLink]="menuPetiano.length > 0 ? '/home' : '/'">
-      PETIT
-    </a>
+    <a class="navbar-brand fw-bold" routerLink="/home"> PETIT </a>
 
     <!-- 📱 BOTÃO MOBILE -->
-    <button class="navbar-toggler" type="button"
+    <button
+      class="navbar-toggler"
+      type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
-      aria-label="Toggle navigation">
-
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
-
     </button>
 
     <!-- 🔗 LINKS -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-
       <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center">
-
         <li class="nav-item mx-2">
-          <a class="nav-link menu-link"
+          <a
+            class="nav-link menu-link"
             routerLink="/dashboards"
-            routerLinkActive="active">
+            routerLinkActive="active"
+          >
             Dashboard
           </a>
         </li>
 
         <li class="nav-item mx-2">
-          <a class="nav-link menu-link"
+          <a
+            class="nav-link menu-link"
             routerLink="/livros"
-            routerLinkActive="active">
+            routerLinkActive="active"
+          >
             Livros
           </a>
         </li>
 
         <li class="nav-item mx-2">
-          <a class="nav-link menu-link"
+          <a
+            class="nav-link menu-link"
             routerLink="/emprestimos"
-            routerLinkActive="active">
+            routerLinkActive="active"
+          >
             Empréstimos
           </a>
         </li>
 
         <li class="nav-item mx-2">
-          <a class="nav-link menu-link"
+          <a
+            class="nav-link menu-link"
             routerLink="/estudantes"
-            routerLinkActive="active">
+            routerLinkActive="active"
+          >
             Estudantes
           </a>
         </li>
 
         <li class="nav-item mx-2">
-          <a class="nav-link menu-link"
+          <a
+            class="nav-link menu-link"
             routerLink="/petianos"
-            routerLinkActive="active">
+            routerLinkActive="active"
+          >
             Petianos
           </a>
         </li>
-
       </ul>
-
     </div>
 
     <!-- 👤 USUÁRIO -->
-    <div *ngIf="menuPetiano.length > 0"
-      class="d-flex align-items-center ms-auto">
+   <div class="d-flex align-items-center ms-auto">
 
-      <span class="badge usuario-badge me-3">
-        👤 {{ nomePetiano }}
-      </span>
+  <button
+    class="btn btn-outline-light btn-sm btn-sair"
+    (click)="sair()"
+  >
+    <i class="bi bi-box-arrow-right"></i>
+    Sair
+  </button>
 
-      <button class="btn btn-outline-light btn-sm btn-sair"
-        (click)="sair()">
-
-        <i class="bi bi-box-arrow-right"></i>
-        Sair
-
-      </button>
-
-    </div>
-
+</div>
   </div>
-
 </nav>

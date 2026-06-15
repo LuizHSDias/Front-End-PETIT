@@ -125,29 +125,31 @@
   </div>
 
   <!-- 📄 PAGINAÇÃO -->
-  <div class="paginacao"
-       *ngIf="totalPaginas > 1">
+  <div
+  class="paginacao"
+  *ngIf="totalPaginas > 1"
+>
 
-    <button
-      class="btn-paginacao"
-      [disabled]="paginaAtual === 0"
-      (click)="paginaAnterior()"
-    >
-      ◀ Anterior
-    </button>
+  <button
+    class="btn-paginacao"
+    [disabled]="paginaAtual === 0"
+    (click)="paginaAnterior()"
+  >
+    <i class="bi bi-chevron-left"></i>
+    Anterior
+  </button>
 
-    <span class="texto-paginacao">
-      Página {{ paginaAtual + 1 }} de {{ totalPaginas }}
-    </span>
+  <span class="texto-paginacao">
+    Página {{ paginaAtual + 1 }} de {{ totalPaginas }}
+  </span>
 
-    <button
-      class="btn-paginacao"
-      [disabled]="paginaAtual + 1 >= totalPaginas"
-      (click)="proximaPagina()"
-    >
-      Próxima ▶
-    </button>
-
-  </div>
+  <button
+    class="btn-paginacao"
+    [disabled]="paginaAtual + 1 >= totalPaginas"
+    (click)="proximaPagina()"
+  >
+    Próxima
+    <i class="bi bi-chevron-right"></i>
+  </button>
 
 </div>

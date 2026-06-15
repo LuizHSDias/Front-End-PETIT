@@ -5,24 +5,59 @@
   min-height: 100vh;
 }
 
-/* 🔥 TOPO */
-.topo-dashboard {
+/* ===========================
+   CABEÇALHO
+=========================== */
+
+.cabecalho-dashboard {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+
+  padding: 25px 20px;
+
   flex-wrap: wrap;
   gap: 15px;
 }
 
-/* 📄 EXPORTAR PDF */
+.titulo-dashboard {
+
+  color: white;
+
+  font-size: 36px;
+  font-weight: 800;
+
+  margin: 0;
+}
+
+.titulo-dashboard i {
+
+  color: #60a5fa;
+
+  margin-right: 10px;
+}
+
+.subtitulo-dashboard {
+
+  color: #94a3b8;
+
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* ===========================
+   BOTÃO PDF
+=========================== */
+
 .btn-exportar {
 
-  background: linear-gradient(
-    135deg,
-    #dc2626,
-    #ef4444
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #dc2626,
+      #ef4444
+    );
 
   color: white;
 
@@ -34,27 +69,39 @@
 
   font-weight: bold;
 
-  transition: 0.2s;
-
+  transition: .2s;
 }
 
 .btn-exportar:hover {
 
   transform: translateY(-2px);
 
-  background: linear-gradient(
-    135deg,
-    #b91c1c,
-    #dc2626
-  );
-
+  background:
+    linear-gradient(
+      135deg,
+      #b91c1c,
+      #dc2626
+    );
 }
 
-/* 📅 FILTRO */
+/* ===========================
+   FILTRO
+=========================== */
+
+.filtro-dashboard {
+
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 0 20px 10px;
+}
+
 .filtro-container {
+
   display: flex;
   align-items: center;
   gap: 10px;
+
   color: #e2e8f0;
 }
 
@@ -76,29 +123,29 @@
 
   cursor: pointer;
 
-  transition: 0.2s;
-
+  transition: .2s;
 }
 
 .filtro-container select:hover {
   background: #334155;
 }
 
-/* 📊 GRID */
+/* ===========================
+   CARDS
+=========================== */
+
 .dashboard {
 
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
+    repeat(auto-fit, minmax(180px, 1fr));
 
   gap: 20px;
 
   padding: 20px;
-
 }
 
-/* 🧱 CARDS */
 .card {
 
   background:
@@ -117,10 +164,9 @@
   text-align: center;
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,0.25);
+    0 6px 18px rgba(0,0,0,.25);
 
-  transition: 0.25s;
-
+  transition: .25s;
 }
 
 .card:hover {
@@ -130,16 +176,21 @@
     scale(1.03);
 
   box-shadow:
-    0 14px 30px rgba(0,0,0,0.45);
+    0 14px 30px rgba(0,0,0,.45);
+}
 
+.card .icone {
+
+  font-size: 28px;
+
+  margin-bottom: 10px;
 }
 
 .card .titulo {
 
   font-size: 13px;
 
-  opacity: 0.7;
-
+  opacity: .8;
 }
 
 .card .valor {
@@ -149,11 +200,45 @@
   font-weight: bold;
 
   margin-top: 8px;
-
 }
 
-/* 💰 CARD VERDE */
-.card.destaque {
+/* ===========================
+   CORES DOS ÍCONES
+=========================== */
+
+.card-estudantes .icone {
+  color: #8b5cf6;
+}
+
+.card-livros .icone {
+  color: #60a5fa;
+}
+
+.card-emprestimos .icone {
+  color: #38bdf8;
+}
+
+.card-ativos .icone {
+  color: #22c55e;
+}
+
+.card-devolvidos .icone {
+  color: #10b981;
+}
+
+.card-atrasados .icone {
+  color: #ef4444;
+}
+
+.card-multas .icone {
+  color: #facc15;
+}
+
+/* ===========================
+   CARD MULTAS
+=========================== */
+
+.card-multas {
 
   background:
     linear-gradient(
@@ -161,10 +246,12 @@
       #16a34a,
       #22c55e
     );
-
 }
 
-/* 📊 GRÁFICOS */
+/* ===========================
+   GRÁFICOS
+=========================== */
+
 .graficos-container {
 
   display: grid;
@@ -174,24 +261,22 @@
   gap: 20px;
 
   padding: 20px;
-
 }
 
 .grafico {
 
   background: #1e293b;
 
-  padding: 20px;
+  padding: 25px;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   color: white;
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,0.25);
+    0 8px 20px rgba(0,0,0,.25);
 
-  transition: 0.2s;
-
+  transition: .2s;
 }
 
 .grafico:hover {
@@ -207,14 +292,16 @@
   margin-bottom: 15px;
 
   color: #e2e8f0;
-
 }
 
 .grafico canvas {
   max-height: 300px;
 }
 
-/* 📱 RESPONSIVO */
+/* ===========================
+   RESPONSIVO
+=========================== */
+
 @media (max-width: 900px) {
 
   .graficos-container {
@@ -229,15 +316,15 @@
     grid-template-columns: 1fr;
   }
 
-  .topo-dashboard {
+  .cabecalho-dashboard {
 
     flex-direction: column;
 
-    align-items: stretch;
-
+    align-items: flex-start;
   }
 
-  .filtro-container {
+  .filtro-dashboard {
+
     justify-content: center;
   }
 

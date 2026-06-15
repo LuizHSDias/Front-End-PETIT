@@ -1,13 +1,12 @@
 <div class="livros-container">
-
   <!-- 🔥 TÍTULO -->
   <h2 class="titulo-pagina">
-    📚 Livros
+    <i class="bi bi-journal-bookmark-fill"></i>
+    Livros
   </h2>
 
   <!-- 🔍 BUSCA -->
   <div class="busca-container">
-
     <input
       type="text"
       class="input-busca"
@@ -16,37 +15,31 @@
     />
 
     <button class="btn-buscar" (click)="buscarPorTitulo()">
-      🔍 Buscar
+      <i class="bi bi-search"></i>
+      Buscar
     </button>
-
   </div>
 
   <!-- ➕ BOTÃO -->
   <div class="acoes-topo">
-
     <a routerLink="/add-livro" class="btn-cadastrar">
-      + Cadastrar
+      <i class="bi bi-plus-circle-fill"></i>
+      Cadastrar
     </a>
-
   </div>
 
   <!-- ⏳ LOADING -->
   <div *ngIf="mensagemDados" class="loading-container">
-
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Carregando...</span>
     </div>
 
     <p class="mt-2">Aguarde, carregando dados...</p>
-
   </div>
 
   <!-- 📚 TABELA -->
-  <div class="table-responsive"
-       *ngIf="!mensagemDados && lista.length > 0">
-
+  <div class="table-responsive" *ngIf="!mensagemDados && lista.length > 0">
     <table class="table-livros">
-
       <thead>
         <tr>
           <th>Título</th>
@@ -60,9 +53,7 @@
       </thead>
 
       <tbody>
-
         <tr *ngFor="let livro of lista">
-
           <td>{{ livro.titulo }}</td>
           <td>{{ livro.autor }}</td>
           <td>{{ livro.editora }}</td>
@@ -71,33 +62,23 @@
           <td>{{ livro.genero }}</td>
 
           <td class="text-center">
-
-            <button class="btn-editar"
-                    (click)="editar(livro.id)">
-              ✏️ Editar
+            <button class="btn-editar" (click)="editar(livro.id)">
+              <i class="bi bi-pencil-square"></i>
+              Editar
             </button>
 
-            <button class="btn-excluir"
-                    (click)="excluir(livro.id!)">
-              🗑️ Excluir
+            <button class="btn-excluir" (click)="excluir(livro.id!)">
+              <i class="bi bi-trash-fill"></i>
+              Excluir
             </button>
-
           </td>
-
         </tr>
-
       </tbody>
-
     </table>
-
   </div>
 
   <!-- ❌ SEM DADOS -->
-  <div *ngIf="!mensagemDados && lista.length === 0"
-       class="sem-dados">
-
+  <div *ngIf="!mensagemDados && lista.length === 0" class="sem-dados">
     Nenhum livro encontrado.
-
   </div>
-
 </div>
